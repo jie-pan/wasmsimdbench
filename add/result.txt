@@ -1,0 +1,58 @@
+
+---add
+add: ret = 10000000.000000
+
+real	4.881
+user	4.881
+sys	0.000
+
+---add_sse
+add_sse: ret = 10000000.000000
+
+real	1.243
+user	1.243
+sys	0.000
+
+---add_avx
+add_avx: ret = 10000000.000000
+
+real	0.656
+user	0.656
+sys	0.000
+---v8 latest---
+
+---add_wasm
+./this.program: ret = 10000000.000000
+
+real	7.257
+user	7.289
+sys	0.028
+
+---add_wasm_sse
+./this.program: ret = 10000000.000000
+
+real	1.981
+user	2.014
+sys	0.024
+---v8 7.6.160---
+
+---add_wasm
+./this.program: ret = 10000000.000000
+
+real	7.254
+user	7.277
+sys	0.024
+
+---add_wasm_sse org
+./this.program: ret = 10000000.000000
+
+real	1.969
+user	1.993
+sys	0.020
+
+---add_wasm_sse opt
+./this.program: ret = 10000000.000000
+
+real	1.070
+user	1.094
+sys	0.016
