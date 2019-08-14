@@ -23,5 +23,8 @@ time ~/web/src/v82/v8/out.gn/x64.release/d8 --experimental-wasm-simd ./add_wasm.
 echo -e "\n---add_wasm_sse org"
 time ~/web/src/v82/v8/out.gn/x64.release_org/d8 --experimental-wasm-simd ./add_wasm_sse.js
 
+echo -e "\n---add_wasm_sse --no-wasm-revec"
+time ~/web/src/v82/v8/out.gn/x64.release/d8 --experimental-wasm-simd --no-wasm-revec ./add_wasm_sse.js
+
 echo -e "\n---add_wasm_sse opt"
 time ~/web/src/v82/v8/out.gn/x64.release/d8 --experimental-wasm-simd ./add_wasm_sse.js
