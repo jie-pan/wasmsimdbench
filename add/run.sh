@@ -8,16 +8,16 @@ time add_sse
 echo -e "\n---add_avx"
 time add_avx
 
-echo -e "---v8 latest---"
-echo -e "\n---add_wasm"
+echo -e "\n---v8 latest---"
+echo -e "---add_wasm"
 time ~/web/src/v8/v8/out.gn/x64.release/d8 --experimental-wasm-simd ./add_wasm.js
 
 echo -e "\n---add_wasm_sse"
 time ~/web/src/v8/v8/out.gn/x64.release/d8 --experimental-wasm-simd ./add_wasm_sse.js
 
 
-echo -e "---v8 7.6.160---"
-echo -e "\n---add_wasm"
+echo -e "\n---v8 7.6.160---"
+echo -e "---add_wasm"
 time ~/web/src/v82/v8/out.gn/x64.release/d8 --experimental-wasm-simd ./add_wasm.js
 
 echo -e "\n---add_wasm_sse org"
