@@ -20,6 +20,9 @@
 
 #include <wasm_simd128.h>
 
+
+//count up
+/* org
 float addfunc(float* a, float* b, float* c, int count)
 {
     //assert(count%4 == 0);
@@ -33,6 +36,88 @@ float addfunc(float* a, float* b, float* c, int count)
     }
     return 1;
 }
+*/
+
+//count up
+/*
+float addfunc(float* a, float* b, float* c, int count)
+{
+    int i = 0;
+    for (; i <= count - 4; i += 4)
+    {
+        v128_t v0 = wasm_v128_load((void* )(a+i));
+        v128_t v1 = wasm_v128_load((void* )(b+i));
+
+        v128_t v2 =wasm_f32x4_add(v0, v1);
+        wasm_v128_store((void*)(c+i), v2);
+    }
+    while(i < count)
+    {
+        c[i] = a[i] + b[i];
+        i++;
+    }
+    return 1;
+}
+*/
+
+
+//count down
+float addfunc(float* a, float* b, float* c, int count)
+{
+   
+    while (count > 3)
+    {
+        v128_t v0 = wasm_v128_load((void* )a);
+        v128_t v1 = wasm_v128_load((void* )b);
+
+        v128_t v2 =wasm_f32x4_add(v0, v1);
+        wasm_v128_store((void*)c, v2);
+
+        a += 4;
+        b += 4;
+        c += 4;
+        count -= 4;
+    }
+
+    while(count > 0)
+    {
+        *c = *a + *b;
+        a += 1;
+        b += 1;
+        c += 1;
+        count--;
+    }
+    return 1;
+}
+
+/*
+// div && mod
+float addfunc(float* a, float* b, float* c, int count)
+{
+    
+    int div8 = count &( ~3);
+    int i = 0;
+    
+    while(i < div8)
+    {
+        v128_t v0 = wasm_v128_load((void* )(a+ i));
+        v128_t v1 = wasm_v128_load((void* )(b+ i));
+
+        v128_t v2 =wasm_f32x4_add(v0, v1);
+        wasm_v128_store((void*)(c+i), v2);
+        i += 4;
+    }
+    //TODO
+    for (i = div8; i < count; i++)
+    {
+        c[i] = a[i] + b[i];
+    }
+
+
+    return 1;
+}
+*/
+
 
 #else //__EMSCRIPTEN__
 

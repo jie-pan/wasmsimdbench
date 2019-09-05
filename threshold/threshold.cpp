@@ -70,7 +70,7 @@ void threshold(unsigned char* dst, unsigned char* src, int count, unsigned char 
 }
 #else
 
-/*
+
 //count down
 void threshold(unsigned char* dst, unsigned char* src, int count, unsigned char thre){
 
@@ -104,7 +104,8 @@ void threshold(unsigned char* dst, unsigned char* src, int count, unsigned char 
         count--;
     }
 }
-*/
+
+/*
 //count up
 void threshold(unsigned char* dst, unsigned char* src, int count, unsigned char thre) {
 
@@ -112,7 +113,7 @@ void threshold(unsigned char* dst, unsigned char* src, int count, unsigned char 
 
     int i = 0;
     //[i,i+15] in range[0, count-1]
-    //while(i + 16 <= count) {
+    //while(i + 16 <= count) 
     while(i  <= count - 16) {
         v128_t pixel = wasm_v128_load((void* )(src+i));
         v128_t mask = wasm_u8x16_ge(pixel, thre16);//FF00, not 0100
@@ -134,6 +135,7 @@ void threshold(unsigned char* dst, unsigned char* src, int count, unsigned char 
     }
 }
 
+*/
 #endif
 
 #else //__EMSCRIPTEN__
