@@ -41,14 +41,16 @@ int main()
 
     initArray(src, N);
 
-    int iteration = 10000000;
-    //int iteration = 255;
+    //int iteration = 10000000;
+    int iteration = 10000;
+    int32_t mask[1] = {0x00FF00FF};
     for (int i = 0; i < iteration; i++)
     {
 
         //printf(" %d iteraton\n", i);
 
         RGBA_to_BGRA((uint32_t*)dst, (const uint32_t*)src, N/4);
+        //RGBA_to_BGRA_v2((uint32_t*)dst, (const uint32_t*)src, mask, N/4);
 
         RGBA_to_BGRA_portable((uint32_t*)dst2, (const uint32_t*)src, N/4);
         verify(dst2, dst, N);

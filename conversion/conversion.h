@@ -9,6 +9,8 @@
 #endif
 
 void RGBA_to_BGRA(uint32_t* dst, const uint32_t* src, int count);
+
+void RGBA_to_BGRA_v2(uint32_t* dst, const uint32_t* src, void* mask, int count);
 void threshold(unsigned char* dst, unsigned char* src, int count, unsigned char thre);
 
 void RGBA_to_BGRA_portable(uint32_t* dst, const uint32_t* src, int count);
