@@ -22,7 +22,8 @@
 
 
 //count up
-/* org
+// org
+/*
 float addfunc(float* a, float* b, float* c, int count)
 {
     //assert(count%4 == 0);
@@ -38,8 +39,9 @@ float addfunc(float* a, float* b, float* c, int count)
 }
 */
 
+
 //count up
-/*
+
 float addfunc(float* a, float* b, float* c, int count)
 {
     int i = 0;
@@ -58,10 +60,11 @@ float addfunc(float* a, float* b, float* c, int count)
     }
     return 1;
 }
-*/
+
 
 
 //count down
+/*
 float addfunc(float* a, float* b, float* c, int count)
 {
    
@@ -89,6 +92,8 @@ float addfunc(float* a, float* b, float* c, int count)
     }
     return 1;
 }
+*/
+
 
 /*
 // div && mod
