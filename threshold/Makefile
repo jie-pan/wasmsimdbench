@@ -1,6 +1,8 @@
 
-CC=gcc
-CFLAGS= -g -O2 -std=c++11
+#CC=gcc
+CC=clang++-10
+
+CFLAGS= -g2 -O2 -std=c++11
 SSECFLAGS= -g -O2 -msse4.2 -std=c++11
 AVXCFLAGS= -g -O2 -mavx -std=c++11
 

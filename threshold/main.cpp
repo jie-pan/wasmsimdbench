@@ -41,8 +41,8 @@ int main()
 
     initArray(src, N);
 
-    //int iteration = 10000000;
-    int iteration =   10000000;
+    int iteration = 10000000;
+    //int iteration =   10;
     for (int i = 0; i < iteration; i++)
     {
 
